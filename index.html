@@ -14,10 +14,13 @@
 
   <link rel="stylesheet" href="fonts.css">
 </head>
+
+
 <body>
+  <canvas id="steam"></canvas>
 
 
-<!-- Верхняя фигура -->
+
 <svg class="decor-top-left" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="darkGradientTop" x1="0" y1="0" x2="1" y2="1">
@@ -33,7 +36,7 @@
   </g>
 </svg>
 
-<!-- Нижняя фигура -->
+
 <svg class="decor-bottom-right" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="darkGradientBottom" x1="0" y1="0" x2="1" y2="1">
@@ -53,16 +56,80 @@
  <header id="header">
   <div class="container">
     <a href="#" class="nav-link">home</a>
+    <a href="#" class="nav-link">randomizer</a>
+    <a href="#" class="nav-link">about game</a>
     <a href="index.html">
       <img id="logo" src="Photos/Logo.webp" alt="logo">
     </a>
     <a href="#" class="nav-link">guide</a>
+    <a href="#" class="nav-link">news</a>
+    <a href="#" class="nav-link">interactive map</a>
+    <button Id="updis">
+ <svg viewBox="0 0 16 16" class="bi bi-discord" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg">
+  <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.19 12.19 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032c.001.014.01.028.021.037a13.276 13.276 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019c.308-.42.582-.863.818-1.329a.05.05 0 0 0-.01-.059.051.051 0 0 0-.018-.011 8.875 8.875 0 0 1-1.248-.595.05.05 0 0 1-.02-.066.051.051 0 0 1 .015-.019c.084-.063.168-.129.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.052.052 0 0 1 .053.007c.08.066.164.132.248.195a.051.051 0 0 1-.004.085 8.254 8.254 0 0 1-1.249.594.05.05 0 0 0-.03.03.052.052 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.235 13.235 0 0 0 4.001-2.02.049.049 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.034.034 0 0 0-.02-.019Zm-8.198 7.307c-.789 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612Zm5.316 0c-.788 0-1.438-.724-1.438-1.612 0-.889.637-1.613 1.438-1.613.807 0 1.451.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612Z"></path>
+</svg>
+    <span>Discord</span>
+</button>
+
+<button id="updis2">
+  <div class="svg-wrapper-1">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" aria-labelledby="title">
+      <title id="title">Green bird with hat (large)</title>
+      <g transform="translate(84 160) scale(2)">
+        <ellipse cx="210" cy="200" rx="180" ry="140" fill="url(#bodyGradient)" stroke="#222" stroke-width="6"/>
+        <ellipse cx="210" cy="210" rx="170" ry="130" fill="url(#bodyLight)" opacity="0.6"/>
+        <ellipse cx="210" cy="320" rx="150" ry="40" fill="rgba(0,0,0,0.12)"/>
+        <g transform="translate(70,80)">
+          <ellipse cx="60" cy="60" rx="44" ry="52" fill="#fffdf6"/>
+          <circle cx="70" cy="60" r="20" fill="#111"/>
+          <circle cx="62" cy="50" r="6" fill="#fff" opacity="0.9"/>
+        </g>
+        <g transform="translate(220,60)">
+          <ellipse cx="60" cy="60" rx="44" ry="52" fill="#fffdf6"/>
+          <circle cx="64" cy="60" r="20" fill="#111"/>
+          <circle cx="56" cy="50" r="6" fill="#fff" opacity="0.9"/>
+        </g>
+        <path d="M210 180c10 10 22 20 34 20s24-10 34-20c-10 6-22 8-34 8s-24-2-34-8z" fill="url(#beakGradient)" stroke="#cc6b00" stroke-width="3" stroke-linejoin="round"/>
+        <g transform="translate(290, -10) rotate(15)">
+          <ellipse cx="0" cy="60" rx="90" ry="22" fill="url(#brimGrad)" stroke="#111" stroke-width="4"/>
+          <path d="M-40 20c20-14 100-10 120 10 14 12 14 30 0 34-30 10-108 0-120-44z" fill="url(#hatGrad)" stroke="#111" stroke-width="4"/>
+          <rect x="-20" y="34" width="80" height="12" rx="4" fill="#d62222" opacity="0.9"/>
+        </g>
+      </g>
+      <defs>
+        <radialGradient id="bodyGradient" cx="50%" cy="40%" r="60%">
+          <stop offset="0%" stop-color="#d6f16c"/>
+          <stop offset="70%" stop-color="#9ecb3f"/>
+          <stop offset="100%" stop-color="#6fa12a"/>
+        </radialGradient>
+        <radialGradient id="bodyLight" cx="40%" cy="30%" r="70%">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="transparent"/>
+        </radialGradient>
+        <linearGradient id="beakGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffb238"/>
+          <stop offset="100%" stop-color="#e07800"/>
+        </linearGradient>
+        <linearGradient id="hatGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#1a1a1a"/>
+          <stop offset="100%" stop-color="#000"/>
+        </linearGradient>
+        <linearGradient id="brimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#222"/>
+          <stop offset="100%" stop-color="#111"/>
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+  <span>Peak discord</span>
+</button>
+
   </div>
 </header>
 
 
  <div class="header">
-  <video src="Photos/Header.mp4" autoplay muted loop playsinline id="headphoto"></video>
+  <video src="Photos/first_video.mp4" autoplay muted loop playsinline id="headphoto"></video>
   <h1>Welcome to the<br>Phasmophobia Guide</h1>
 </div>
 
@@ -76,7 +143,7 @@
   <div id="headdiv">
     <div class="text-block">
    <h1 data-aos="fade-right">
-  Your portal to the<br>
+  Your portal to the
   <span class="rotator">
     <span data-aos="fade-right" id="randomword">mystical</span>
   </span><br>
@@ -97,17 +164,74 @@
         comfortable, stress-free gaming.
       </p>
 
-     
+
+<div id="ourbuttons">
+
+
+      <button id="DiscordButton">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M2 11.6C2 8.23969 2 6.55953 2.65396 5.27606C3.2292 4.14708 4.14708 3.2292 5.27606 2.65396C6.55953 2 8.23969 2 11.6 2H20.4C23.7603 2 25.4405 2 26.7239 2.65396C27.8529 3.2292 28.7708 4.14708 29.346 5.27606C30 6.55953 30 8.23969 30 11.6V20.4C30 23.7603 30 25.4405 29.346 26.7239C28.7708 27.8529 27.8529 28.7708 26.7239 29.346C25.4405 30 23.7603 30 20.4 30H11.6C8.23969 30 6.55953 30 5.27606 29.346C4.14708 28.7708 3.2292 27.8529 2.65396 26.7239C2 25.4405 2 23.7603 2 20.4V11.6Z" fill="white"></path> <path d="M23.6361 9.33998C22.212 8.71399 20.6892 8.25903 19.0973 8C18.9018 8.33209 18.6734 8.77875 18.5159 9.13408C16.8236 8.89498 15.1469 8.89498 13.4857 9.13408C13.3283 8.77875 13.0946 8.33209 12.8974 8C11.3037 8.25903 9.77927 8.71565 8.35518 9.3433C5.48276 13.4213 4.70409 17.3981 5.09342 21.3184C6.99856 22.6551 8.84487 23.467 10.66 23.9983C11.1082 23.4189 11.5079 22.8029 11.8523 22.1536C11.1964 21.9195 10.5683 21.6306 9.9748 21.2951C10.1323 21.1856 10.2863 21.071 10.4351 20.9531C14.0551 22.5438 17.9881 22.5438 21.5649 20.9531C21.7154 21.071 21.8694 21.1856 22.0251 21.2951C21.4299 21.6322 20.8 21.9211 20.1442 22.1553C20.4885 22.8029 20.8865 23.4205 21.3364 24C23.1533 23.4687 25.0013 22.6567 26.9065 21.3184C27.3633 16.7738 26.1261 12.8335 23.6361 9.33998ZM12.3454 18.9075C11.2587 18.9075 10.3676 17.9543 10.3676 16.7937C10.3676 15.6331 11.2397 14.6783 12.3454 14.6783C13.4511 14.6783 14.3422 15.6314 14.3232 16.7937C14.325 17.9543 13.4511 18.9075 12.3454 18.9075ZM19.6545 18.9075C18.5678 18.9075 17.6767 17.9543 17.6767 16.7937C17.6767 15.6331 18.5488 14.6783 19.6545 14.6783C20.7602 14.6783 21.6514 15.6314 21.6323 16.7937C21.6323 17.9543 20.7602 18.9075 19.6545 18.9075Z" fill="#5865F2"></path> </g></svg>
     </div>
+  </div>
+  <span>Discord</span>
+</button>
+
+
+
+
+        <button id="TelegramButton">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="16" cy="16" r="14" fill="url(#paint0_linear_87_7225)"></circle> <path d="M22.9866 10.2088C23.1112 9.40332 22.3454 8.76755 21.6292 9.082L7.36482 15.3448C6.85123 15.5703 6.8888 16.3483 7.42147 16.5179L10.3631 17.4547C10.9246 17.6335 11.5325 17.541 12.0228 17.2023L18.655 12.6203C18.855 12.4821 19.073 12.7665 18.9021 12.9426L14.1281 17.8646C13.665 18.3421 13.7569 19.1512 14.314 19.5005L19.659 22.8523C20.2585 23.2282 21.0297 22.8506 21.1418 22.1261L22.9866 10.2088Z" fill="white"></path> <defs> <linearGradient id="paint0_linear_87_7225" x1="16" y1="2" x2="16" y2="30" gradientUnits="userSpaceOnUse"> <stop stop-color="#37BBFE"></stop> <stop offset="1" stop-color="#007DBB"></stop> </linearGradient> </defs> </g></svg>
+    </div>
+  </div>
+  <span>Telegram</span>
+</button>
+
+
+
+
+          <button id="BoostyButton">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 235.6 292.2" style="enable-background:new 0 0 235.6 292.2;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+</style>
+<g id="b_1_">
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="145.0777" y1="76.148" x2="80.5868" y2="296.0785">
+		<stop  offset="0" style="stop-color:#EF7829"/>
+		<stop  offset="5.189538e-02" style="stop-color:#F07529"/>
+		<stop  offset="0.3551" style="stop-color:#F0672B"/>
+		<stop  offset="0.6673" style="stop-color:#F15E2C"/>
+		<stop  offset="1" style="stop-color:#F15A2C"/>
+	</linearGradient>
+	<path class="st0" d="M44.3,164.5L76.9,51.6H127l-10.1,35c-0.1,0.2-0.2,0.4-0.3,0.6L90,179.6h24.8c-10.4,25.9-18.5,46.2-24.3,60.9
+		c-45.8-0.5-58.6-33.3-47.4-72.1 M90.7,240.6l60.4-86.9h-25.6l22.3-55.7c38.2,4,56.2,34.1,45.6,70.5
+		c-11.3,39.1-57.1,72.1-101.7,72.1C91.3,240.6,91,240.6,90.7,240.6z"/>
+</g>
+</svg>
+    </div>
+  </div>
+  <span>Boosty</span>
+</button>
+</div>
+    </div>
+
+
 
     <div class="image-block">
   <video
-    id="loopVideo"
-    src="Photos/first_video.mp4"
-    muted
-    autoplay
-    playsinline
-  ></video>
+  id="loopVideo"
+  src="Photos/Header.mp4"
+  muted
+  autoplay
+  loop
+  playsinline>
+</video>
+
 </div>
 
   </div>
@@ -209,16 +333,81 @@
 </div>
 
 
+<div id="supportUs">
+
+    <h1 id="fh1suppus">support us</h1>
+    <p id="fpsuppus">Your support is what keeps our community moving forward. You can currently support us through DonationAlerts, Boosty, and Patreon!</p>
+
+
+    <h2>Why is this important?</h2>
+    <p>We are a non-profit project that lives and breathes thanks to the enthusiasm and support of each and every one of you. If you feel our ideas resonate with you and want to be part of something bigger, any help is invaluable. This could be through active participation, your ideas, or financial support.</p>
+
+    <p id="Supus"><snap id="chartsvg"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="customize"> <g id="customize_2"> <path id="Combined Shape" fill-rule="evenodd" clip-rule="evenodd" d="M10.9882 18.127C10.9882 16.811 11.8288 15.6922 13.002 15.2772V11.0986H7C6.44828 11.0986 6 11.5469 6 12.0986V36.0986C6 36.6503 6.44828 37.0986 7 37.0986H19.966C20.5183 37.0986 20.966 37.5463 20.966 38.0986C20.966 38.6509 20.5183 39.0986 19.966 39.0986H7C5.34372 39.0986 4 37.7549 4 36.0986V12.0986C4 10.4423 5.34372 9.09863 7 9.09863H13.002V7.12183C13.002 6.56954 13.4497 6.12183 14.002 6.12183C14.5543 6.12183 15.002 6.56954 15.002 7.12183V9.09863H24.002C24.5543 9.09863 25.002 9.54634 25.002 10.0986L25.0017 10.1245L25.002 10.1504V27.2176C26.185 27.628 27.0342 28.7523 27.0342 30.0752C27.0342 31.3981 26.1851 32.5211 25.002 32.9311V37.0986H41C41.5517 37.0986 42 36.6503 42 36.0986V12.0986C42 11.5469 41.5517 11.0986 41 11.0986H28.002C27.4497 11.0986 27.002 10.6509 27.002 10.0986C27.002 9.54634 27.4497 9.09863 28.002 9.09863H33.002V7.13983C33.002 6.58754 33.4497 6.13983 34.002 6.13983C34.5543 6.13983 35.002 6.58754 35.002 7.13983V9.09863H41C42.6563 9.09863 44 10.4423 44 12.0986V36.0986C44 37.7549 42.6563 39.0986 41 39.0986H25.002V41.0004C25.002 41.5527 24.5543 42.0004 24.002 42.0004C23.4497 42.0004 23.002 41.5527 23.002 41.0004V32.925C21.8288 32.5101 20.9882 31.3913 20.9882 30.0752C20.9882 28.7591 21.8288 27.6391 23.002 27.2237V11.0986H15.002V15.2712C16.1851 15.6811 17.0342 16.8042 17.0342 18.127C17.0342 19.4499 16.185 20.5742 15.002 20.9847V34.0518C15.002 34.6041 14.5543 35.0518 14.002 35.0518C13.4497 35.0518 13.002 34.6041 13.002 34.0518V20.9786C11.8288 20.5631 10.9882 19.4431 10.9882 18.127ZM14.041 19.1506C14.0281 19.1501 14.0151 19.1498 14.002 19.1498C13.9917 19.1498 13.9814 19.15 13.9712 19.1503C13.4253 19.1297 12.9882 18.6795 12.9882 18.127C12.9882 17.5622 13.4456 17.105 14.0102 17.105C14.5766 17.105 15.0342 17.562 15.0342 18.127C15.0342 18.6824 14.5925 19.1343 14.041 19.1506ZM33.002 26.9786C31.8288 26.5631 30.9882 25.4431 30.9882 24.127C30.9882 22.811 31.8288 21.6922 33.002 21.2772V14.1498C33.002 13.5975 33.4497 13.1498 34.002 13.1498C34.5543 13.1498 35.002 13.5975 35.002 14.1498V21.2712C36.1851 21.6811 37.0342 22.8042 37.0342 24.127C37.0342 25.4499 36.185 26.5742 35.002 26.9847V34.0518C35.002 34.6041 34.5543 35.0518 34.002 35.0518C33.4497 35.0518 33.002 34.6041 33.002 34.0518V26.9786ZM35.0342 24.127C35.0342 23.562 34.5766 23.105 34.0102 23.105C33.4456 23.105 32.9882 23.5622 32.9882 24.127C32.9882 24.6926 33.4463 25.151 34.0102 25.151C34.5759 25.151 35.0342 24.6927 35.0342 24.127ZM25.0342 30.0752C25.0342 29.5095 24.5759 29.0512 24.0102 29.0512C23.4463 29.0512 22.9882 29.5097 22.9882 30.0752C22.9882 30.6401 23.4456 31.0972 24.0102 31.0972C24.5766 31.0972 25.0342 30.6403 25.0342 30.0752Z" fill="#000000"></path> </g> </g> </g></svg></snap>
+    We need funds to ensure the site remains stable and that our Discord bots continue to provide you with great functionality.</p>
+
+
+    <p><snap id="ourdream"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.88999 10.44C6.79113 10.4413 6.693 10.4229 6.60139 10.3857C6.50979 10.3484 6.42658 10.2932 6.35666 10.2233C6.28675 10.1534 6.23156 10.0702 6.19434 9.9786C6.15713 9.887 6.13865 9.78887 6.13999 9.69V3.69C6.13999 3.49109 6.21901 3.30032 6.35966 3.15967C6.50031 3.01902 6.69108 2.94 6.88999 2.94C7.0889 2.94 7.27967 3.01902 7.42032 3.15967C7.56097 3.30032 7.63999 3.49109 7.63999 3.69V9.69C7.63999 9.88891 7.56097 10.0797 7.42032 10.2203C7.27967 10.361 7.0889 10.44 6.88999 10.44Z" fill="#000000"></path> <path d="M9.87 7.46002H3.86999C3.67108 7.46002 3.48032 7.381 3.33966 7.24035C3.19901 7.0997 3.12 6.90893 3.12 6.71002C3.12 6.51111 3.19901 6.32034 3.33966 6.17969C3.48032 6.03904 3.67108 5.96002 3.86999 5.96002H9.87C10.0689 5.96002 10.2597 6.03904 10.4003 6.17969C10.541 6.32034 10.62 6.51111 10.62 6.71002C10.62 6.90893 10.541 7.0997 10.4003 7.24035C10.2597 7.381 10.0689 7.46002 9.87 7.46002Z" fill="#000000"></path> <path d="M15.18 21C14.9811 21 14.7903 20.921 14.6497 20.7803C14.509 20.6397 14.43 20.4489 14.43 20.25V11C14.43 10.8011 14.509 10.6103 14.6497 10.4697C14.7903 10.329 14.9811 10.25 15.18 10.25C15.3789 10.25 15.5697 10.329 15.7103 10.4697C15.851 10.6103 15.93 10.8011 15.93 11V20.26C15.9248 20.4564 15.8439 20.6431 15.704 20.7811C15.5642 20.919 15.3764 20.9975 15.18 21Z" fill="#000000"></path> <path d="M19.8 16.4H10.55C10.3511 16.4 10.1603 16.321 10.0197 16.1804C9.879 16.0397 9.79999 15.8489 9.79999 15.65C9.79999 15.4511 9.879 15.2603 10.0197 15.1197C10.1603 14.979 10.3511 14.9 10.55 14.9H19.8C19.9989 14.9 20.1897 14.979 20.3303 15.1197C20.471 15.2603 20.55 15.4511 20.55 15.65C20.55 15.8489 20.471 16.0397 20.3303 16.1804C20.1897 16.321 19.9989 16.4 19.8 16.4Z" fill="#000000"></path> </g></svg></snap>
+    We dream of a large and friendly community! To achieve this, we need to spread the word, and that requires investing in promotion.</p>
+
+
+    <p><snap id="upoutsite"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 9V15M21 14V7.2C21 6.0799 21 5.51984 20.782 5.09202C20.5903 4.71569 20.2843 4.40973 19.908 4.21799C19.4802 4 18.9201 4 17.8 4H6.2C5.0799 4 4.51984 4 4.09202 4.21799C3.71569 4.40973 3.40973 4.71569 3.21799 5.09202C3 5.51984 3 6.0799 3 7.2V16.8C3 17.9201 3 18.4802 3.21799 18.908C3.40973 19.2843 3.71569 19.5903 4.09202 19.782C4.51984 20 5.0799 20 6.2 20H12M12 13H12.7976C13.2426 13 13.465 13 13.6765 13.0463C13.8641 13.0874 14.0447 13.1553 14.213 13.2479C14.4026 13.3523 14.57 13.4988 14.9049 13.7918L20.8649 19.0068C21.4792 19.5443 21.5107 20.4893 20.9335 21.0665C20.4082 21.5918 19.5656 21.6199 19.0065 21.1307L13.0928 15.9562C12.6907 15.6043 12.4896 15.4284 12.3452 15.2158C12.2173 15.0273 12.1225 14.8184 12.065 14.5981C12 14.3495 12 14.0823 12 13.5479V13Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></snap>
+    Continuous development of the website and Discord server, adding new features and improving the design - all this requires time and resources from developers.</p>
+
+
+   <div class="donation-buttons">
+  <a class="donate-btn donationalerts" href="#">
+    <svg viewBox="0 0 235.6 292.2" xmlns="http://www.w3.org/2000/svg" class="donate-icon">
+      <linearGradient id="DonationAlertsGrad" x1="145.0777" y1="76.148" x2="80.5868" y2="296.0785" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#FFFFFF"/>
+        <stop offset="1" stop-color="#F15A2C"/>
+      </linearGradient>
+      <path fill="url(#DonationAlertsGrad)" d="M44.3,164.5L76.9,51.6H127l-10.1,35c-0.1,0.2-0.2,0.4-0.3,0.6L90,179.6h24.8
+      c-10.4,25.9-18.5,46.2-24.3,60.9c-45.8-0.5-58.6-33.3-47.4-72.1 M90.7,240.6l60.4-86.9h-25.6l22.3-55.7
+      c38.2,4,56.2,34.1,45.6,70.5c-11.3,39.1-57.1,72.1-101.7,72.1C91.3,240.6,91,240.6,90.7,240.6z"/>
+    </svg>
+    DonationAlerts
+  </a>
+
+  <a class="donate-btn boosty" href="#">
+    <svg viewBox="0 0 235.6 292.2" xmlns="http://www.w3.org/2000/svg" class="donate-icon">
+      <linearGradient id="BoostyGrad" x1="145.0777" y1="76.148" x2="80.5868" y2="296.0785" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#FFFFFF"/>
+        <stop offset="1" stop-color="#FF7033"/>
+      </linearGradient>
+      <path fill="url(#BoostyGrad)" d="M44.3,164.5L76.9,51.6H127l-10.1,35c-0.1,0.2-0.2,0.4-0.3,0.6L90,179.6h24.8
+      c-10.4,25.9-18.5,46.2-24.3,60.9c-45.8-0.5-58.6-33.3-47.4-72.1 M90.7,240.6l60.4-86.9h-25.6l22.3-55.7
+      c38.2,4,56.2,34.1,45.6,70.5c-11.3,39.1-57.1,72.1-101.7,72.1C91.3,240.6,91,240.6,90.7,240.6z"/>
+    </svg>
+    Boosty
+  </a>
+</div>
+
 
 
 </main>
 
+<footer id="footer">
+  <div class="footer-left">
+    <h1>© 2020–2025 | v. 4.25.1<br>
+    The site is not affiliated with Kinetic Games.</h1>
+  </div>
+
+  <div class="footer-right">
+    <p>Made with 
+      <span id="svgheart">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000">
+          <path d="M16.696 3C14.652 3 12.887 4.197 12 5.943 11.113 4.197 9.348 3 7.304 3 4.374 3 2 5.457 2 8.481s1.817 5.796 4.165 8.073S12 21 12 21s3.374-2.133 5.835-4.446C20.46 14.088 22 11.514 22 8.481 22 5.448 19.626 3 16.696 3Z" 
+          fill="#b13535" fill-opacity=".16" stroke="#b13535" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span> 
+      by razlag4
+    </p>
+  </div>
+</footer>
 
 
 
-
-
-
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script src="index.js"></script>
 </body>

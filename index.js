@@ -74,30 +74,45 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const words = ["mystical", "atmospheric", "team", "Interesting", "frightening"];
-const span = document.getElementById("randomword");
-const rotator = document.querySelector(".rotator");
+const words = [
+  "mystical",      
+  "atmospheric",  
+  "team",       
+  "interesting",  
+  "frightening",   
+  "haunting",      
+  "ominous",
+  "shadowed",
+  "unknown",    
+  "ethereal", 
+  "eerie",    
+  "sinister",      
+  "forgotten",
+  "nightmarish",  
+  "spectral"     
+];
 
-function getRandomWord(exclude) {
-  if (words.length <= 1) return words[0] || "";
-  let pick;
-  do {
-    pick = words[Math.floor(Math.random() * words.length)];
-  } while (pick === exclude);
-  return pick;
-}
+const span = document.getElementById("randomword");
+
+let index = 0;
 
 function changeWord() {
   span.classList.add("fade-out");
+
   setTimeout(() => {
-    span.textContent = getRandomWord(span.textContent);
+    // увеличиваем индекс и делаем "зацикливание"
+    index = (index + 1) % words.length;
+    span.textContent = words[index];
+
     span.classList.remove("fade-out");
     span.classList.add("fade-in");
+
     setTimeout(() => span.classList.remove("fade-in"), 500);
   }, 500);
 }
 
 setInterval(changeWord, 3000);
+
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -220,3 +235,84 @@ function reverseFrame() {
 
   requestAnimationFrame(reverseFrame);
 }
+
+
+const canvas = document.getElementById("steam");
+const ctx = canvas.getContext("2d");
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+
+let particles = [];
+const mouse = { x: innerWidth / 2, y: innerHeight / 2 };
+
+// === Автоматически добавить класс ко всем текстовым элементам ===
+const allTextElements = document.querySelectorAll("h1, h2, h3, h4, h5, h6, p, span, a, li, div, button, label");
+allTextElements.forEach(el => {
+  if (el.textContent.trim().length > 0) el.classList.add("mystic-text");
+});
+
+const texts = document.querySelectorAll(".mystic-text");
+
+// === Частицы пара (как дыхание) ===
+class Particle {
+  constructor(x, y) {
+    this.x = x + (Math.random() - 0.5) * 10;
+    this.y = y + (Math.random() - 0.5) * 10;
+    this.size = Math.random() * 30 + 20;
+    this.opacity = Math.random() * 0.1 + 0.03;
+    this.life = 80 + Math.random() * 40;
+    this.vx = (Math.random() - 0.5) * 0.6;
+    this.vy = -Math.random() * 1 - 0.2;
+  }
+
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    this.life--;
+    this.opacity *= 0.97;
+  }
+
+  draw() {
+    const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
+    gradient.addColorStop(0, `rgba(255,255,255,${this.opacity})`);
+    gradient.addColorStop(1, `rgba(255,255,255,0)`);
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// === Реакция на движение курсора ===
+window.addEventListener("mousemove", e => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+  for (let i = 0; i < 2; i++) particles.push(new Particle(mouse.x, mouse.y));
+
+  // Эффект свечения текста
+  texts.forEach(t => {
+    const rect = t.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dist = Math.hypot(mouse.x - cx, mouse.y - cy);
+    if (dist < 150) t.classList.add("glow");
+    else t.classList.remove("glow");
+  });
+});
+
+// === Анимация ===
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles = particles.filter(p => p.life > 0);
+  for (const p of particles) {
+    p.update();
+    p.draw();
+  }
+  requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener("resize", () => {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+});

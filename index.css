@@ -8,10 +8,43 @@
 body {
   margin: 0;
   font-family: "Segoe UI", sans-serif;
-  background-color: #070708;
   color: #f1f1f1;
   overflow-x: hidden;
+  min-height: 100vh;
+  background: radial-gradient(
+  circle at 50% 20%, 
+  #22232d 0%, 
+  #161821 35%, 
+  #0c0d11 70%, 
+  #050507 100%
+);
+  background-attachment: fixed;
 }
+
+
+#steam {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mystic-text {
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+
 
 
 main {
@@ -22,58 +55,266 @@ main {
 }
 
 
-#header {
-  background: rgba(17, 17, 17, 0.85);
-  backdrop-filter: blur(12px);
-  padding: 0.7rem 0; /* компактно */
+#ourbuttons {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 28px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  user-select: none;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3.5rem; /* расстояние между элементами */
-}
-
-#logo {
-  height: 65px; /* немного меньше */
-  transition: transform 0.3s ease;
-}
-
-#logo:hover {
-  transform: scale(1.05);
-}
-
-.nav-link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 30px;
-  font-weight: 500;
+/* Общий стиль кнопок */
+#ourbuttons button {
   position: relative;
-  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 26px;
+  border: none;
+  border-radius: 14px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  overflow: hidden;
 }
 
-.nav-link::after {
+/* Все SVG одинакового размера и центрированы */
+.svg-wrapper-1 svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+/* Плавная анимация при наведении */
+#ourbuttons button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+}
+
+/* ====== ДИСКОРД ====== */
+#DiscordButton {
+  background: #5865F2;
+}
+
+#DiscordButton:hover {
+  background: #6f7aff;
+  box-shadow: 0 0 16px rgba(88,101,242,0.5);
+}
+
+/* ====== ТЕЛЕГРАМ ====== */
+#TelegramButton {
+  background: linear-gradient(45deg, #37BBFE, #007DBB);
+}
+
+#TelegramButton:hover {
+  background: linear-gradient(45deg, #4fc3ff, #1499d3);
+  box-shadow: 0 0 16px rgba(55,187,254,0.5);
+}
+
+/* ====== BOOSTY ====== */
+#BoostyButton {
+  background: linear-gradient(45deg, #f15a2c, #f3722c);
+}
+
+#BoostyButton:hover {
+  background: linear-gradient(45deg, #ff713c, #f98a4c);
+  box-shadow: 0 0 16px rgba(241,90,44,0.5);
+}
+
+/* Эффект подсветки при наведении */
+#ourbuttons button::before {
   content: "";
   position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #d4af37;
-  transition: width 0.3s ease;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.25), transparent);
+  transform: skewX(-25deg);
+  transition: all 0.6s ease;
 }
 
-.nav-link:hover {
-  color: #d4af37;
+#ourbuttons button:hover::before {
+  left: 130%;
 }
 
-.nav-link:hover::after {
+
+/* ====== HEADER (desktop-first, minimal) ====== */
+:root{
+  --header-height: 78px;
+  --accent: #ff6b4a;
+  --muted: #cfcfcf;
+  --text: #ececec;
+  --bg-weak: rgba(255,255,255,0.03);
+  --glass: rgba(0,0,0,0.45);
+  --gap: 18px;
+  font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+/* header base */
+#header{
   width: 100%;
+  box-sizing: border-box;
+  color: var(--text);
+  position: relative;
+  z-index: 50;
 }
+
+/* main container: horizontal layout */
+#header .container{
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  height: var(--header-height);
+  padding: 0 5vw;            /* side padding, full-width feel */
+  box-sizing: border-box;
+  /* subtle glass effect so header reads on dark backgrounds */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.719), rgba(0, 0, 0, 0.374));
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+/* put logo visually first (left) even if it's in middle of HTML */
+#header .container a[href$="index.html"]{
+  order: -1;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  margin-right: 6px;
+}
+
+/* logo image */
+#logo{
+  height: 85px;             /* controlled logo size */
+  width: auto;
+  display: block;
+  -o-object-fit: contain;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.25));
+}
+
+#header .container .nav-link{
+  order: 1;                 /* place after logo, before actions */
+  display: inline-block;
+  margin: 0 12px;
+  padding: 6px 6px;
+  color: var(--muted);
+  text-decoration: none;
+  text-transform: lowercase;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  font-size: 2rem;       /* readable size */
+  transition: color .15s ease, transform .12s ease;
+  white-space: nowrap;
+}
+
+/* center the whole group of nav-links:
+   first and last .nav-link get auto margins, which centers the sequence */
+#header .container .nav-link:first-of-type{
+  margin-left: auto;
+}
+#header .container .nav-link:last-of-type{
+  margin-right: auto;
+}
+
+/* nav hover / active */
+#header .container .nav-link:hover{
+  color: var(--text);
+  transform: translateY(-3px);
+  text-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* ACTION BUTTONS (right side) */
+/* keep them as default last items; add explicit order for clarity */
+#header .container button,
+#header .container .action-btn{
+  order: 2;
+}
+
+/* base style for those two header buttons */
+#header .container button,
+#header .container .action-btn,
+#header .container a.button-like {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: var(--bg-weak);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.35rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .16s ease, box-shadow .16s ease, background .12s ease;
+  white-space: nowrap;
+}
+
+#updis {
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(145deg, #7ecbff, #5aa8e8) !important;
+}
+
+
+#updis svg { display:block; width:18px; height:18px; }
+
+
+#updis2 {
+  padding: 10px 16px;
+  background: linear-gradient(145deg, #b38cff, #9b6fe0) !important;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* hover effects for action buttons (minimal) */
+#header .container button:hover,
+#header .container .action-btn:hover,
+#header .container a.button-like:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.045);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+/* subtle accent on primary (peak) button — keeps minimal but visible */
+#updis2:hover {
+  box-shadow: 0 12px 30px rgba(0,0,0,0.10), 0 0 10px rgba(255,107,74,0.04);
+  outline: none;
+}
+
+
+/* accessibility focus styles */
+#header .container a:focus,
+#header .container button:focus {
+  outline: 2px solid rgba(255,107,74,0.12);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* ensure header items never wrap and stay on one line */
+#header .container * {
+  box-sizing: border-box;
+}
+
+/* force last elements (buttons) to remain together on the right */
+#header .container button#updis,
+#header .container button#updis2 {
+  margin-left: 8px;
+}
+
+/* small tweak to keep logo clickable area neat */
+#header .container a[href$="index.html"] img {
+  pointer-events: none;
+}
+
 
 
 .header {
@@ -100,7 +341,7 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 3rem;
+  font-size: 4rem;
   color: rgba(255, 255, 255, 0.9);
   text-align: center;
   letter-spacing: 3px;
@@ -115,7 +356,7 @@ main {
   height: 880px;
   opacity: 0.12;
   pointer-events: none;
-  filter: blur(10px) drop-shadow(0 0 25px rgba(184, 156, 114, 0.3));
+  filter: blur(20px) drop-shadow(0 0 25px rgba(184, 156, 114, 0.3));
   transform-origin: center;
   will-change: transform;
 }
@@ -135,8 +376,8 @@ main {
 /* Заливка путей */
 .decor-top-left path,
 .decor-bottom-right path {
-  fill: #b89c72;
-  opacity: 0.7;
+  fill: #ffffff;
+  opacity: 1;
 }
 
 /* Анимация "порхания" */
@@ -156,8 +397,8 @@ main {
   position: fixed;
   top: 0;
   left: 0;
-  width: 350px;
-  height: 350px;
+  width: 450px;
+  height: 450px;
   pointer-events: none;
   opacity: 0.9;
   z-index: 2;
@@ -251,8 +492,8 @@ main {
 #randomword {
   display: inline-block;
   position: relative;
-  color: rgb(255, 255, 255);
-  padding-bottom: 8px;
+  color: #ffffff;
+  padding-bottom: 10px;
   line-height: 1;
   opacity: 1;
   transition: opacity 0.6s ease;
@@ -265,10 +506,11 @@ main {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 10px;
-  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='10' viewBox='0 0 100 10' preserveAspectRatio='none'><path d='M0 5 Q 12.5 0, 25 5 T 50 5 T 75 5 T 100 5' stroke='%FFFFFF' stroke-width='3' fill='transparent'/></svg>") no-repeat;
-  background-size: 100% 100%;
+  height: 8px;
+  background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 100 10' xmlns='http://www.w3.org/2000/svg'><path d='M0 5 Q 25 0 50 5 T100 5' stroke='%23ff6b4a' fill='transparent' stroke-width='2.5' stroke-linecap='round'/></svg>") repeat-x;
+  background-size: 20px 10px;
 }
+
 
 #randomword.fade-out {
   opacity: 0;
@@ -304,8 +546,33 @@ main {
 }
 
 #PhasmoText {
-    color: rgb(233, 101, 101);
+  color: #7a82a0; /* тусклый серо-фиолетовый оттенок */
+  text-shadow:
+    0 0 6px rgba(150, 160, 255, 0.15),
+    0 0 18px rgba(100, 110, 255, 0.1),
+    0 0 40px rgba(80, 90, 180, 0.07);
+  letter-spacing: 2px;
+  font-weight: 600;
+  filter: blur(0.3px);
+  opacity: 0.9;
+  animation: mistyFade 4s ease-in-out infinite;
 }
+
+@keyframes mistyFade {
+  0%, 100% {
+    opacity: 0.8;
+    text-shadow:
+      0 0 6px rgba(150, 160, 255, 0.12),
+      0 0 20px rgba(80, 90, 180, 0.08);
+  }
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 12px rgba(170, 190, 255, 0.2),
+      0 0 30px rgba(100, 120, 255, 0.15);
+  }
+}
+
 
 
 #underline {
@@ -316,12 +583,17 @@ main {
   margin-bottom: 20px;
 }
 
+
 .desc {
-  font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.082);
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 1.6rem;
   line-height: 1.8;
   opacity: 0.85;
   margin-bottom: 30px;
 }
+
 
 .button {
   display: inline-flex;
@@ -375,7 +647,7 @@ main {
 
 /* Заголовок */
 #whyus {
-  font-size: 2.2rem;
+  font-size: 2.9rem;
   margin-bottom: 40px;
   color: #ffffff;
   font-weight: 700;
@@ -385,7 +657,7 @@ main {
 
 /* Абзацы */
 #blockus p {
-  font-size: 1.05rem;
+  font-size: 1.45rem;
   color: #e0e0e0;
   margin: 25px 0;
   display: flex;
@@ -467,7 +739,7 @@ main {
 
 /* Заголовок */
 #jointous {
-  font-size: 2.9rem; /* было 2.5rem */
+  font-size: 3.6rem; /* было 2.5rem */
   color: #ffffff;
   margin-top: 30px;
   margin-bottom: 25px;
@@ -627,3 +899,174 @@ main {
   transition: opacity 0.5s ease;
 }
 
+
+/* ========== SUPPORT US — минималистичный, центрированный, desktop-first ========== */
+#supportUs {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 80px 12vw;            /* растягивает блок по ширине с боковыми отступами */
+  color: #e8e8e8;
+  font-family: "Poppins", "Segoe UI", system-ui, -apple-system, sans-serif;
+  line-height: 1.8;
+  text-align: left;            /* всё по центру */
+  position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Заголовок */
+#supportUs h1#fh1suppus {
+  font-size: 3.2rem;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #f7d4d4;
+  font-weight: 700;
+  /* очень мягкая тень для читаемости (почти незаметная) */
+  text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+  display: inline-block;
+}
+
+/* Подзаголовок */
+#supportUs h2 {
+  font-size: 3.0rem;
+  margin: 18px 0 10px;
+  color: #f7d4d4;
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.28);
+}
+
+/* Параграфы — увеличенный и читабельный текст */
+#supportUs p {
+  font-size: 1.50rem;
+  color: #d1d1d1;
+  margin: 0 auto 18px;
+  max-width: 86ch;               /* чтобы строки не были слишком длинными */
+  text-shadow: 0 2px 6px rgba(0,0,0,0.06); /* почти незаметная глубина */
+}
+
+/* SVG внутри текста — аккуратно по размеру */
+#supportUs svg {
+  width: 22px;
+  height: 22px;
+  vertical-align: middle;
+  margin-right: 10px;
+  fill: #dcdcdc;
+  transition: transform .18s ease, fill .18s ease;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.04));
+}
+
+/* Небольшой эффект при наведении на параграф — тонкая подсветка иконки */
+#supportUs p:hover svg {
+  transform: translateY(-2px);
+  fill: #ff6b4a;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.05));
+}
+
+/* Кнопки — одна строка, по центру */
+.donation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 34px;
+  flex-wrap: nowrap;             /* обязательно в одну строку */
+}
+
+/* Базовый минималистичный стиль кнопки */
+.donate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+  padding: 12px 28px;
+  font-size: 1.19rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  background: rgba(255, 106, 0, 0.903);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06); /* очень мягкая тень */
+  transition: transform .16s ease, box-shadow .16s ease, background .16s ease;
+  white-space: nowrap;
+}
+
+/* Иконка внутри кнопки */
+.donate-btn .donate-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: block;
+  filter: drop-shadow(0 6px 10px rgba(0,0,0,0.04));
+}
+
+/* Hover — лёгкий подъём и усиление контура (без ярких эффектов) */
+.donate-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  background: rgb(255, 149, 0);
+}
+
+
+/* Минимальные стили для ссылок в тексте */
+#supportUs p a {
+  color: #ff6b4a;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,107,74,0.18);
+}
+#supportUs p a:hover { color: #ff4a4a; }
+
+/* Убираем все адаптивные правила — desktop-first минимализм */
+
+
+#footer {
+  width: 100%;
+  padding: 20px 50px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #ddd;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#footer h1 {
+  margin: 0;
+  font-size: 19px;
+  color: #aaa;
+  line-height: 1.4em;
+  font-weight: 400;
+}
+
+#footer p {
+  margin: 0;
+  font-size: 21px;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#footer #svgheart svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+
+#footer #svgheart:hover svg {
+  transform: scale(1.2);
+  fill: #ff5050;
+  stroke: #ff5050;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-right {
+  text-align: right;
+}
