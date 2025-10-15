@@ -44,9 +44,6 @@ canvas {
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
-
-
-
 main {
   max-width: 72%;
   margin: 0 auto;
@@ -1069,4 +1066,147 @@ main {
 
 .footer-right {
   text-align: right;
+}
+
+
+@media (max-width: 1024px) {
+  #header .container {
+    height: 64px;
+    padding: 10px 4vw;
+    gap: 12px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.78), rgba(0,0,0,0.38));
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #logo { height: 64px; }
+  #header .container .nav-link {
+    font-size: 1.6rem;
+    margin: 6px 8px;
+  }
+  #header .container button,
+  #header .container .action-btn,
+  #header .container a.button-like {
+    font-size: 1.15rem;
+    padding: 6px 10px;
+  }
+  .header { height: 32rem; }
+  .header h1 { font-size: 3rem; top: 48%; letter-spacing: 2px; }
+  #headdiv { gap: 28px; height: auto; }
+  #headdiv .text-block { padding: 14px 0; }
+  .image-block { align-items: center; }
+  #PhasmophobiaUSA {
+    width: 36%;
+    max-width: 420px;
+    right: 6%;
+    transform: translateY(-50%);
+  }
+  #ourbuttons { gap: 18px; margin-top: 28px; }
+  #ourbuttons button { padding: 12px 20px; font-size: 16px; border-radius: 12px; }
+  .user-card { min-height: 360px; max-width: 620px; padding: 28px 36px; }
+  #supportUs { padding: 60px 8vw; }
+  .donation-buttons { gap: 14px; }
+  .donate-btn { padding: 10px 20px; font-size: 1.05rem; }
+}
+
+@media (max-width: 768px) {
+  #header .container {
+    padding: 12px 4vw;
+    height: auto;
+    gap: 10px;
+    justify-content: center;
+  }
+  #header .container .nav-link {
+    font-size: 1.15rem;
+    padding: 6px 8px;
+    margin: 4px;
+    white-space: nowrap;
+  }
+  #header .container .nav-link:first-of-type,
+  #header .container .nav-link:last-of-type {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  #logo { height: 56px; }
+  .header { height: 42vh; min-height: 260px; }
+  .header h1 {
+    font-size: 2.4rem;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 10px;
+    line-height: 1.12;
+  }
+  #headphoto { height: 100%; object-fit: cover; }
+  #headdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    height: auto;
+  }
+  .text-block, .image-block { width: 100%; max-width: 100%; }
+  .text-block { padding: 8px 6px; order: 0; }
+  .image-block { order: 1; padding: 0 6px; }
+  #PhasmophobiaUSA {
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+    width: 94% !important;
+    max-width: 700px;
+    margin: 12px auto 0;
+    display: block;
+  }
+  #ourbuttons {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  #ourbuttons button {
+    width: min(88%, 420px);
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+  #updis, #updis2 { padding: 8px 10px; }
+  #ourgrade { padding: 48px 6vw; flex-direction: column; gap: 18px; }
+  .left-side, .right-side { width: 100%; min-width: 0; }
+  .user-card { min-height: auto; padding: 24px; }
+  .donation-buttons { flex-direction: column; gap: 12px; align-items: center; }
+  .donate-btn { width: min(90%, 420px); justify-content: center; padding: 12px 18px; }
+  #footer { padding: 18px 4vw; flex-direction: column; gap: 12px; align-items: center; text-align: center; }
+  .footer-left, .footer-right { width: 100%; }
+  .footer-right p { justify-content: center; }
+  #whyus { font-size: 2.2rem; }
+  #jointous { font-size: 2.4rem; }
+  #supportUs h1#fh1suppus { font-size: 2.2rem; }
+  #supportUs h2 { font-size: 2rem; }
+}
+
+@media (max-width: 420px) {
+  body { font-size: 15px; }
+  #logo { height: 48px; }
+  #header .container .nav-link { font-size: 1rem; padding: 5px 8px; }
+  .header h1 { font-size: 1.9rem; letter-spacing: 1.5px; }
+  #firstblockP { font-size: 22px; }
+  #whyus { font-size: 1.95rem; }
+  #jointous { font-size: 2rem; }
+  #lookatgrade { font-size: 1.2rem; }
+  #ourbuttons button { width: 96%; padding-left: 20px; padding-right: 20px; border-radius: 12px; }
+  main { padding: 28px 14px; max-width: 96%; }
+  #blockus { padding: 36px 6%; }
+  .decor-top-left, .decor-bottom-right { width: 520px; height: 520px; opacity: 0.08; filter: blur(14px); }
+  .stars svg { width: 20px; height: 20px; }
+  .donate-icon { width: 20px; height: 20px; }
+  #User-avatar { width: 56px; height: 56px; }
+}
+
+@media (max-width: 1024px) {
+  .container, main, #blockus, #supportUs, #ourgrade { max-width: 100%; overflow-x: hidden; }
+  svg { max-width: 100%; height: auto; }
+}
+
+@media (pointer: coarse) {
+  #ourbuttons button, .donate-btn, #updis, #updis2 {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.06);
+  }
 }
